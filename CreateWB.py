@@ -18,7 +18,10 @@ ws3.title="Mysheet_02"
 ws.sheet_properties.tabcolor="1072BA"
 
 #posicionando pelo nome da aba
-ws4=wb["Mysheet_01"]
+#ws4=wb["New Title"]
+
+#retorna nomes das abas
+print(wb.sheetnames)
 
 #retorna o nome das abas
 for sheet in wb:
