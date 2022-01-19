@@ -1,4 +1,7 @@
 #importa a biblioteca e instancia a planilha
+from multiprocessing.sharedctypes import Value
+from sqlite3 import Row
+from tkinter.tix import COLUMN, ROW
 from openpyxl import Workbook
 wb=Workbook()
 
@@ -18,7 +21,7 @@ ws3.title="Mysheet_02"
 ws.sheet_properties.tabcolor="1072BA"
 
 #posicionando pelo nome da aba
-#ws4=wb["New Title"]
+ws4=wb["Mysheet_01"]
 
 #retorna nomes das abas
 print(wb.sheetnames)
@@ -26,3 +29,16 @@ print(wb.sheetnames)
 #retorna o nome das abas
 for sheet in wb:
     print(sheet.title)
+
+#Criar uma cópia de aba
+source=wb.active
+target=wb.copy_worksheet(source)
+print(wb.sheetnames)
+
+#acessando uma célula
+c=ws['a4']
+ws['a4']=4
+d=ws.cell(row=4,column=2,value=10)
+print(d.value)
+
+#acessando varias células
